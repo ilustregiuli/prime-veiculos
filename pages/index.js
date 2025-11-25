@@ -1,78 +1,130 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
+import Layout from '@/components/layout/Layout';
+import PageSection from '@/components/ui/PageSection';
+import TopRibbon from '@/components/ui/TopRibbon';
+import CtaButton from '@/components/ui/CtaButton';
+import FeatureCard from '@/components/ui/FeatureCard';
+import VehicleCard from '@/components/ui/VehicleCard';
+import TestimonialCard from '@/components/ui/TestimonialCard';
+import { loadSettings } from '@/lib/settings';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export default function Home() {
+export default function Home({ settings }) {
   return (
-    <div
-      className={`${geistSans.className} ${geistMono.className} flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black`}
-    >
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the index.js file.
+    <Layout settings={settings}>
+      {settings.sections.topRibbon.enabled && <TopRibbon settings={settings.sections.topRibbon} />}
+
+      {/* HERO */}
+      <PageSection id="hero" bgColor="bg-neutral-900 text-white" vPadding="py-32 md:py-48" className="relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={settings.sections.hero.image}
+            alt="Background"
+            className="w-full h-full object-cover opacity-60"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-neutral-900/90 via-neutral-900/80 to-neutral-900/90 z-0"></div>
+        <div className="relative z-10 text-center">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
+            {settings.sections.hero.title}
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-xl md:text-2xl mb-10 max-w-2xl mx-auto text-neutral-200">
+            {settings.sections.hero.subtitle}
           </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <CtaButton variant="primary" href="#vehicles">{settings.sections.hero.ctaPrimary}</CtaButton>
+            <CtaButton variant="outline" href="#cta" className="text-white border-white hover:bg-white hover:text-neutral-900 hover:border-white">{settings.sections.hero.ctaSecondary}</CtaButton>
+          </div>
+
+          {/* Stats */}
+          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto border-t border-white/20 pt-8">
+            {settings.sections.hero.stats.map((stat, i) => (
+              <div key={i}>
+                <div className="text-3xl md:text-4xl font-bold text-red-500">{stat.number}</div>
+                <div className="text-sm text-neutral-300 uppercase tracking-wider">{stat.label}</div>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+      </PageSection>
+
+      {/* ABOUT */}
+      <PageSection id="about" title={settings.sections.about.title}>
+        <div className="flex flex-col md:flex-row items-center gap-12">
+          <div className="md:w-1/2">
+            <p className="text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed">
+              {settings.sections.about.content}
+            </p>
+            <div className="mt-6">
+              <CtaButton variant="outline" href="#cta">Conheça Nossa Loja</CtaButton>
+            </div>
+          </div>
+          <div className="md:w-1/2 relative h-64 md:h-80 w-full rounded-2xl overflow-hidden shadow-lg">
+            <img
+              src={settings.sections.about.image}
+              alt={settings.sections.about.title}
+              className="w-full h-full object-cover"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs/pages/getting-started?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
         </div>
-      </main>
-    </div>
+      </PageSection>
+
+      {/* FEATURES */}
+      <PageSection
+        id="features"
+        title={settings.sections.features.title}
+        subtitle={settings.sections.features.subtitle}
+        bgColor="bg-neutral-50 dark:bg-neutral-900/50"
+      >
+        <div className="grid md:grid-cols-3 gap-8">
+          {settings.sections.features.items.map((feature, i) => (
+            <FeatureCard key={i} {...feature} />
+          ))}
+        </div>
+      </PageSection>
+
+      {/* VEHICLES (ex-PRICING) */}
+      <PageSection
+        id="vehicles"
+        title={settings.sections.vehicles.title}
+        subtitle={settings.sections.vehicles.subtitle}
+      >
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {settings.sections.vehicles.items.map((vehicle, i) => (
+            <VehicleCard key={i} {...vehicle} />
+          ))}
+        </div>
+        <div className="text-center mt-12">
+          <CtaButton variant="outline" href="#cta">Ver Estoque Completo</CtaButton>
+        </div>
+      </PageSection>
+
+      {/* TESTIMONIALS */}
+      <PageSection id="testimonials" title={settings.sections.testimonials.title} bgColor="bg-neutral-50 dark:bg-neutral-900/50">
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          {settings.sections.testimonials.items.map((testimonial, i) => (
+            <TestimonialCard key={i} {...testimonial} />
+          ))}
+        </div>
+      </PageSection>
+
+      {/* CTA FINAL */}
+      <PageSection
+        id="cta"
+        bgColor="bg-red-600 text-white"
+        vPadding="py-20"
+      >
+        <div className="text-center">
+          <h2 className="text-4xl font-bold mb-4">{settings.sections.cta.title}</h2>
+          <p className="text-xl mb-8 text-red-100">{settings.sections.cta.subtitle}</p>
+          <CtaButton variant="primary" className="bg-white text-red-600 hover:bg-neutral-100 hover:scale-105 shadow-xl">{settings.sections.cta.button}</CtaButton>
+          <p className="text-sm mt-6 opacity-80">{settings.sections.cta.secondaryText}</p>
+        </div>
+      </PageSection>
+    </Layout>
   );
+}
+
+export async function getStaticProps() {
+  const settings = loadSettings();
+  return { props: { settings } };
 }

@@ -1,0 +1,12 @@
+{
+  "brandName": "Prime Veículos",
+  "brandTagline": "Seu seminovo de confiança",
+  "brandEmail": "contato@primeveiculos.com.br",
+  "brandPhone": "+55 11 99999-9999",
+  "brandLogo": "/logo.svg",
+  "social": {
+    "instagram": "https://instagram.com/primeveiculos",
+    "linkedin": "https://linkedin.com/company/primeveiculos",
+    "whatsapp": "https://wa.me/5511999999999"
+  }
+}

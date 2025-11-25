@@ -1,0 +1,122 @@
+{
+    "topRibbon": {
+        "enabled": true,
+        "message": "🚗 Feirão de Seminovos: Taxas a partir de 0,99% a.m. Aproveite!",
+        "closeable": true
+    },
+    "hero": {
+        "title": "Seu Próximo Carro Está Aqui",
+        "subtitle": "Qualidade, procedência e as melhores condições de pagamento do mercado. Venha conhecer nosso estoque.",
+        "ctaPrimary": "Ver Estoque",
+        "ctaSecondary": "Falar no WhatsApp",
+        "image": "/hero-car.png",
+        "stats": [
+            {
+                "number": "1000+",
+                "label": "Carros Vendidos"
+            },
+            {
+                "number": "100%",
+                "label": "Procedência"
+            }
+        ]
+    },
+    "about": {
+        "title": "Sobre a Prime Veículos",
+        "content": "Há mais de 10 anos no mercado, a Prime Veículos se destaca pela qualidade de seus automóveis e pelo atendimento personalizado. Todos os nossos carros passam por rigorosa vistoria cautelar para garantir a sua segurança e satisfação.",
+        "image": "/about-store.png"
+    },
+    "features": {
+        "title": "Por Que Comprar Conosco?",
+        "subtitle": "Diferenciais que garantem a melhor compra",
+        "items": [
+            {
+                "icon": "FiCheckCircle",
+                "title": "Vistoria Cautelar",
+                "description": "Todos os veículos aprovados em perícia técnica."
+            },
+            {
+                "icon": "FiShield",
+                "title": "Garantia Estendida",
+                "description": "Opções de garantia de até 1 ano para seu seminovo."
+            },
+            {
+                "icon": "FiDollarSign",
+                "title": "Melhor Avaliação",
+                "description": "Pagamos bem no seu usado na troca."
+            }
+        ]
+    },
+    "vehicles": {
+        "title": "Ofertas da Semana",
+        "subtitle": "Confira os destaques do nosso estoque",
+        "items": [
+            {
+                "name": "Jeep Compass Longitude",
+                "price": "R$ 145.900",
+                "details": "2022 • 35.000km",
+                "image": "/car-1.jpg",
+                "features": [
+                    "Diesel",
+                    "4x4",
+                    "Teto Solar",
+                    "Único Dono"
+                ],
+                "cta": "Tenho Interesse",
+                "featured": true
+            },
+            {
+                "name": "Fiat Pulse Audace",
+                "price": "R$ 98.900",
+                "details": "2023 • 12.000km",
+                "image": "/car-2.jpg",
+                "features": [
+                    "Automático",
+                    "Turbo 200",
+                    "Multimídia 10\""
+                ],
+                "cta": "Ver Detalhes",
+                "featured": false
+            },
+            {
+                "name": "Toyota Corolla XEi",
+                "price": "R$ 129.900",
+                "details": "2021 • 45.000km",
+                "image": "/car-3.jpg",
+                "features": [
+                    "Flex",
+                    "Automático",
+                    "Couro",
+                    "Revisado"
+                ],
+                "cta": "Ver Detalhes",
+                "featured": false
+            }
+        ]
+    },
+    "testimonials": {
+        "title": "O Que Dizem Nossos Clientes",
+        "items": [
+            {
+                "name": "Carlos Mendes",
+                "role": "Cliente Satisfeito",
+                "avatar": "",
+                "rating": 5,
+                "text": "Atendimento excelente! O carro estava impecável, exatamente como no anúncio. Recomendo a todos."
+            },
+            {
+                "name": "Fernanda Oliveira",
+                "role": "Cliente Satisfeita",
+                "avatar": "",
+                "rating": 5,
+                "text": "Consegui uma taxa de financiamento muito boa e a avaliação do meu usado foi justa. Muito feliz com meu novo carro!"
+            }
+        ]
+    },
+    "cta": {
+        "title": "Não encontrou o que procurava?",
+        "subtitle": "Entre em contato e nós encontramos o carro ideal para você.",
+        "button": "Fale com um Consultor",
+        "secondaryText": "Atendimento rápido via WhatsApp"
+    }
+}
